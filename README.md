@@ -11,6 +11,5 @@ Python based SMTP mailing client.
 4. Rest are all optional.
 5. Happy mailing!
 
-# Contact
-+ Authour: [Aravind Potluri](name-is-cipher.github.io) 
-+ Mail: <aravindswami135@gmail.com>
+# Author
+#### Aravind Potluri \<aravindswami135@gmail.com\>
