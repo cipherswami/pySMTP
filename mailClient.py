@@ -7,6 +7,7 @@
 # Libraries
 import smtplib
 import os
+import getpass
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
@@ -30,14 +31,14 @@ def genrateMIME(sMail, rMail, cc, bcc, sub, body):
 
 # Connect to the SMTP server
 try:
-    # """Login details"""
     server = smtplib.SMTP(smtpServer, smtpPort)
-    server.starttls()  # Use TLS encryption if supported
+    server.starttls()  # Using TLS encryption
     while True:
         try:
             print("################## IITK Mail Client ########################")
+            # """Login details"""
             senderMail = input("[#] IITK Mail ID: ")
-            senderPasswd = input("[#] Password: ")
+            senderPasswd = getpass.getpass("[#] Password: ")
             server.login(senderMail, senderPasswd)
             break
         except:
@@ -66,7 +67,7 @@ finally:
                     msg.attach(attachment)
                     break
             except FileNotFoundError:
-                print("[!] File not found\n")
+                print("[!] File not found")
         else:
             break
     server.sendmail(senderMail, [recipientMail, ccMail, bccMail], msg.as_string())
